@@ -1,10 +1,29 @@
 {
+  "name": "kpalmvik/isitpoya",
+  "description": "Is it a Poya day today?",
+  "license": "MIT",
+  "type": "project",
+  "authors": [
+    {
+      "name": "Kristofer Palmvik",
+      "email": "kristofer@palmvik.se",
+      "homepage": "http://kristofer.palmvik.se",
+      "role": "Developer"
+    }
+  ],
+  "homepage": "http://www.isitpoya.com",
   "require": {
     "silex/silex": "~1.2"
   },
   "autoload": {
     "psr-4": {
-      "Isitpoya\\Api\\": "api/"
+      "Isitpoya\\": "src/"
     }
+  },
+  "scripts": {
+    "run": [
+      "echo 'Starting Vagrant box with web server on http://192.168.33.10/'",
+      "vagrant up"
+    ]
   }
 }

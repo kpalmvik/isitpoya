@@ -1,25 +1,10 @@
 <?php
-use Silex\Application;
-use Isitpoya\Api;
+ini_set('display_errors', 0);
 
 require_once __DIR__.'/../vendor/autoload.php';
 
-$app = new Application();
+$app = require __DIR__.'/../src/app.php';
 
-// Set the debug mode in .htaccess
-$app['debug'] = getenv('APPLICATION_ENV') === 'debug';
-
-// Controller as a service
-$app->register(new Silex\Provider\ServiceControllerServiceProvider());
-$app['api.controller'] = $app->share(function() use ($app) {
-    return new \Isitpoya\Api\ApiController();
-});
-
-// Routing
-$app->get('/', function () use ($app){
-  return 'isitpoya.com';
-});
-
-$app->get('/api/next', "api.controller:next");
+require __DIR__.'/../src/controllers.php';
 
 $app->run();
