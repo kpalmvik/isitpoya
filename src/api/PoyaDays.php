@@ -16,4 +16,13 @@ class PoyaDays
   {
     $this->poyaDays = Json::decode($json);
   }
+
+  public function nextOnOrAfter(\DateTime $dateTime)
+  {
+    return new PoyaDay(
+      $date = new \DateTime(),
+      $name = 'Generic Poya Day',
+      $source = 'Universal source'
+    );
+  }
 }
